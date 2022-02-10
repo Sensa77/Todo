@@ -1,0 +1,5 @@
+.filter {
+  display: flex;
+  width: 310px;
+  justify-content: space-between;
+}

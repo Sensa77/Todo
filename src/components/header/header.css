@@ -1,0 +1,15 @@
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.header__title {
+  margin-right: 30px;
+  font-weight: 700;
+}
+
+.header__progress {
+  color: gray;
+  
+}

@@ -1,24 +1,31 @@
 import React from 'react';
+import "./tasks.css"
 
 const Tasks = () => {
   return (
-<div className='tasks'>
-  <div className='task'>
+<ul className='tasks'>
+  <li className='task'>
     <span className='task__title'>Drink Coffee</span>
-    <button type='button' className='task__delete'></button>
-    <button type='button' className='task__done'></button>
-  </div>
-  <div className='task'>
-    <span className='task__title'>Make awesome app</span>
-    <button type='button' className='task__delete'></button>
-    <button type='button' className='task__done'></button>
-  </div>
-  <div className='task'>
+    <div className='task__buttons btn-group'>
+    <button type='button' className='task__delete btn btn-outline-danger'>delete</button>
+    <button type='button' className='task__done btn btn-outline-success'>done</button>
+    </div>
+  </li>
+  <li className='task'>
+  <span className='task__title'>Make awesome app</span>
+    <div className='task__buttons btn-group'>
+    <button type='button' className='task__delete btn btn-outline-danger'>delete</button>
+    <button type='button' className='task__done btn btn-outline-success'>done</button>
+    </div>
+  </li>
+  <li className='task'>
     <span className='task__title'>Have a lunch</span>
-    <button type='button' className='task__delete'></button>
-    <button type='button' className='task__done'></button>
-  </div>
-</div>
+    <div className='task__buttons btn-group'>
+    <button type='button' className='task__delete btn btn-outline-danger'>delete</button>
+    <button type='button' className='task__done btn btn-outline-success'>done</button>
+    </div>
+  </li>
+</ul>
   )
 }
 
