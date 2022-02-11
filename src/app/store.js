@@ -1,9 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import deleteTaskReducer  from "../components/tasks/task";
+import taskReducer  from "../components/tasks/task";
+console.log(taskReducer)
 
 const store = configureStore({
   reducer: {
-    delete: deleteTaskReducer
+    tasks: taskReducer,
 }})
 
 export default store

@@ -1,19 +1,19 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { deleteTask } from "./task";
+import { deleteTask, tasksSelector } from "./task";
 import "./tasks.css";
 
 
-const Tasks = ({ id, name }) => {
-  const tasks = useSelector((state) => state.delete.tasks);
+const Tasks = () => {
+  const tasks = useSelector(tasksSelector);
   const dispatch = useDispatch();
 
   return (
     <ul className="tasks">
       {tasks.map((task) => {
         return (
-          <li className="task" id={task.id} key={task.name}>
+          <li className="task" id={task.id} key={task.id}>
             <span className="task__title">{task.name}</span>
             <div className="task__buttons btn-group">
               <button
