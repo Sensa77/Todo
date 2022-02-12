@@ -14,4 +14,14 @@
   padding-bottom: 5px;
 }
 
+.task__title {
+  cursor: pointer;
+}
 
+.task__title--active {
+  text-decoration: line-through;
+}
+
+.task__title--important {
+  font-weight: 700;
+}

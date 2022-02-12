@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { addTask, valueSelector } from "../tasks/task";
 import { change } from "../tasks/task";
-import {clearInput} from "../tasks/task"
+import { clearInput } from "../tasks/task";
 import "./newTask.css";
 
 const NewTask = () => {
@@ -24,8 +24,10 @@ const NewTask = () => {
           type="button"
           className="new-task__button btn btn-outline-secondary"
           onClick={() => {
-            dispatch(addTask())
-            dispatch(clearInput())
+            if (changeTask !== "") {
+              dispatch(addTask());
+              dispatch(clearInput());
+            }
           }}
         >
           Add item
