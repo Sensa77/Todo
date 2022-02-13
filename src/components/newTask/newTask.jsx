@@ -18,7 +18,16 @@ const NewTask = () => {
           className="new-task__input form-control"
           placeholder="What needs to be done"
           value={changeTask}
-          onChange={(e) => dispatch(change(e.target.value))}
+          onChange={(e) => {
+            dispatch(change(e.target.value));
+          }}
+          onKeyPress={(e) => {
+            if (e.key === "Enter") {
+              dispatch(addTask());
+              e.preventDefault();
+              dispatch(clearInput());
+            }
+          }}
         ></input>
         <button
           type="button"

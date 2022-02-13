@@ -17,6 +17,7 @@ let initialState = {
     },
   ],
   value: "",
+  search: "",
 };
 
 const taskSlice = createSlice({
@@ -48,19 +49,17 @@ const taskSlice = createSlice({
     },
     doneTask(state, action) {
       const idx = state.tasks.findIndex((el) => el.id === action.payload);
-      state.tasks[idx].done = true;
-    },
-    notDoneTask(state, action) {
-      const idx = state.tasks.findIndex((el) => el.id === action.payload);
-      state.tasks[idx].done = false;
+      state.tasks[idx].done = !state.tasks[idx].done;
     },
     importantTask(state, action) {
       const idx = state.tasks.findIndex((el) => el.id === action.payload);
-      state.tasks[idx].important = true;
+      state.tasks[idx].important = !state.tasks[idx].important;
     },
-    notImportantTask(state, action) {
-      const idx = state.tasks.findIndex((el) => el.id === action.payload);
-      state.tasks[idx].important = false;
+    searchChangeTask(state, action) {
+      state.search = action.payload;
+      //   state.tasks = state.tasks.filter((item) =>
+      //     item.name.includes(state.search)
+      //   );
     },
   },
 });
@@ -71,11 +70,11 @@ export const {
   change,
   clearInput,
   doneTask,
-  notDoneTask,
   importantTask,
-  notImportantTask,
+  searchChangeTask,
 } = taskSlice.actions;
 
+export const searchSelector = (state) => state.tasks.search;
 export const tasksSelector = (state) => state.tasks.tasks;
 export const valueSelector = (state) => state.tasks.value;
 export default taskSlice.reducer;
