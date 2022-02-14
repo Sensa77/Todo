@@ -18,6 +18,9 @@ let initialState = {
   ],
   value: "",
   search: "",
+  viewTasks: [],
+  filterDone: false,
+  filterActive: false,
 };
 
 const taskSlice = createSlice({
@@ -57,9 +60,21 @@ const taskSlice = createSlice({
     },
     searchChangeTask(state, action) {
       state.search = action.payload;
-      //   state.tasks = state.tasks.filter((item) =>
-      //     item.name.includes(state.search)
-      //   );
+    },
+    filter(state, action) {
+      state.viewTasks = action.payload;
+    },
+    filterAll(state) {
+      state.filterDone = false;
+      state.filterActive = false;
+    },
+    filterActive(state) {
+      state.filterActive = true;
+      state.filterDone = false;
+    },
+    filterDone(state) {
+      state.filterDone = true;
+      state.filterActive = false;
     },
   },
 });
@@ -72,8 +87,15 @@ export const {
   doneTask,
   importantTask,
   searchChangeTask,
+  filter,
+  filterAll,
+  filterActive,
+  filterDone,
 } = taskSlice.actions;
 
+export const filterDoneSelector = (state) => state.tasks.filterDone;
+export const filterActiveSelector = (state) => state.tasks.filterActive;
+export const viewTasksSelector = (state) => state.tasks.viewTasks;
 export const searchSelector = (state) => state.tasks.search;
 export const tasksSelector = (state) => state.tasks.tasks;
 export const valueSelector = (state) => state.tasks.value;

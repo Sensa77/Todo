@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import {
@@ -7,14 +7,30 @@ import {
   doneTask,
   importantTask,
   searchSelector,
+  viewTasksSelector,
+  filter,
+  filterActiveSelector,
+  filterDoneSelector,
 } from "./task";
 import "./tasks.css";
 
 const Tasks = () => {
   const tasks = useSelector(tasksSelector);
+  const viewTasks = useSelector(viewTasksSelector);
   const searchTask = useSelector(searchSelector);
+  const filterTaskActive = useSelector(filterActiveSelector);
+  const filterTaskDone = useSelector(filterDoneSelector);
   const dispatch = useDispatch();
-  console.log(searchTask);
+
+  useEffect(() => {
+    if (filterTaskActive) {
+      dispatch(filter(tasks.filter((task) => !task.done)));
+    } else if (filterTaskDone) {
+      dispatch(filter(tasks.filter((task) => task.done)));
+    } else {
+      dispatch(filter(tasks));
+    }
+  }, [filterTaskActive, filterTaskDone, tasks]);
 
   const switchDone = ({ id }) => {
     dispatch(doneTask(id));
@@ -26,7 +42,7 @@ const Tasks = () => {
 
   return (
     <ul className="tasks">
-      {tasks
+      {viewTasks
         .filter((task) =>
           task.name.toLowerCase().includes(searchTask.toLowerCase())
         )
