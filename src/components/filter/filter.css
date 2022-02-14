@@ -3,3 +3,7 @@
   width: 310px;
   justify-content: space-between;
 }
+
+.filter__button--active {
+  background-color: lightgray;
+}
