@@ -1,7 +1,7 @@
 import React from "react";
 import Filter from "../filter/filter";
 import { useDispatch } from "react-redux";
-import { searchChangeTask } from "../tasks/task";
+import { searchChangeTask } from "../tasks/tasksSlice";
 import "./search.css";
 
 const Search = () => {

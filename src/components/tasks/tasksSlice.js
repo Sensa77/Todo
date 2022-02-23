@@ -23,7 +23,7 @@ let initialState = {
   filterActive: false,
 };
 
-const taskSlice = createSlice({
+const tasksSlice = createSlice({
   name: "tasks",
   initialState,
   reducers: {
@@ -91,7 +91,7 @@ export const {
   filterAll,
   filterActive,
   filterDone,
-} = taskSlice.actions;
+} = tasksSlice.actions;
 
 export const filterDoneSelector = (state) => state.tasks.filterDone;
 export const filterActiveSelector = (state) => state.tasks.filterActive;
@@ -99,4 +99,4 @@ export const viewTasksSelector = (state) => state.tasks.viewTasks;
 export const searchSelector = (state) => state.tasks.search;
 export const tasksSelector = (state) => state.tasks.tasks;
 export const valueSelector = (state) => state.tasks.value;
-export default taskSlice.reducer;
+export default tasksSlice.reducer;

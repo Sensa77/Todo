@@ -1,9 +1,9 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { addTask, valueSelector } from "../tasks/task";
-import { change } from "../tasks/task";
-import { clearInput } from "../tasks/task";
+import { addTask, valueSelector } from "../tasks/tasksSlice";
+import { change } from "../tasks/tasksSlice";
+import { clearInput } from "../tasks/tasksSlice";
 import "./newTask.css";
 
 const NewTask = () => {

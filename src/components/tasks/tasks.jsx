@@ -11,7 +11,7 @@ import {
   filter,
   filterActiveSelector,
   filterDoneSelector,
-} from "./task";
+} from "./tasksSlice";
 import "./tasks.css";
 
 const Tasks = () => {

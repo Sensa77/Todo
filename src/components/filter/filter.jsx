@@ -7,7 +7,7 @@ import {
   filterDone,
   filterDoneSelector,
   filterActiveSelector,
-} from "../tasks/task";
+} from "../tasks/tasksSlice";
 import { useSelector } from "react-redux";
 
 const Filter = () => {

@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { tasksSelector } from "../tasks/task";
+import { tasksSelector } from "../tasks/tasksSlice";
 import "./header.css";
 
 const Header = () => {
